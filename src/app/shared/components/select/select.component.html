@@ -1,0 +1,32 @@
+<div class="content-input">
+  @if (arraySelect.labelExists) {
+    <label class="label" for="">
+      {{arraySelect.name}}
+    </label>
+  }
+  <div class="form__field"  [formGroup]="form">
+    @if (arraySelect.iconExists) {
+      <label class="label-izq">
+        <span><i [class]="arraySelect.icon"></i></span>
+      </label>
+    }
+      <select required name="select" [style.font-size]="arraySelect.font" [formControlName]="arraySelect.controlName" (mousemove)="onMouseMove($event)" (mouseout)="onMouseOut()">
+          <option value="" hidden>{{arraySelect.placeholder}}</option>
+          @for (item of arraySelect.selects; track $index) {
+            <option name="select" [value]="item.value">
+              {{item.name}}
+            </option>
+          }
+      </select>
+      <div class="select-arrow">
+          <div class="arrow-down"></div>
+      </div>
+  </div>
+  @if (arraySelect.tooltip) {
+    @if (mostrarMensaje) {
+      <div class="mensaje-cursor">
+        {{arraySelect.name}}
+      </div>
+    }
+  }
+</div>

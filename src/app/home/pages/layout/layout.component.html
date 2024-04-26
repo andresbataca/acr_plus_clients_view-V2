@@ -1,0 +1,170 @@
+<div class="container">
+  <nav class="sidebar" [class.close]="isClose">
+      <header>
+          <div class="image-text">
+              <span class="image">
+                  <img src="https://creditoacr.com/wp-content/uploads/2023/04/Logo-peq-ACR-cuadrado.png" alt="">
+              </span>
+
+              <div class="text header-text">
+                  <span class="name">Acr Plus</span>
+              </div>
+          </div>
+
+      </header>
+
+      <div class="menu-bar">
+          <div class="menu-bar-content">
+              <div class="menu">
+
+
+
+                  <ul class="menu-links">
+
+                      <li class="nav-link" (click)="isMobile? toggleClose(): ''" routerLinkActive="active">
+                          <a routerLink="./home">
+                              <i class='bx bx-home-alt icon' ></i>
+                              <span class="text nav-text">Inicio</span>
+                          </a>
+                      </li>
+
+                      <li class="nav-link" (click)="isMobile? toggleClose(): ''" routerLinkActive="active">
+                          <a routerLink="./products">
+                              <i class='bx bxl-product-hunt icon'></i>
+                              <span class="text nav-text">Productos</span>
+                          </a>
+                      </li>
+
+                      <li class="nav-link" (click)="isMobile? toggleClose(): ''" routerLinkActive="active">
+                        <a routerLink="./pays">
+                            <i class='bx bx-money icon'></i>
+                            <span class="text nav-text">Pagos</span>
+                        </a>
+                    </li>
+
+                      <li class="nav-link" (click)="isMobile? toggleClose(): ''" routerLinkActive="active">
+                          <a routerLink="./cleared">
+                              <i class='bx bx-dock-left icon'></i>
+                              <span class="text nav-text">Paz y salvo</span>
+                          </a>
+                      </li>
+
+                      <li class="nav-link" (click)="isMobile? toggleClose(): ''" routerLinkActive="active">
+                          <a routerLink="./credit-simulator">
+                              <i class='bx bx-calculator icon'></i>
+                              <span class="text nav-text">Simulador</span>
+                          </a>
+                      </li>
+
+                      <li class="nav-link" (click)="isMobile? toggleClose(): ''" routerLinkActive="active">
+                          <a routerLink="./contact-us">
+                              <i class='bx bxs-contact icon' ></i>
+                              <span class="text nav-text">Contacto</span>
+                          </a>
+                      </li>
+
+                      <li class="nav-link" (click)="isMobile? toggleClose(): ''" routerLinkActive="active">
+                          <a routerLink="./faqs">
+                              <i class='bx bxs-hand icon'></i>
+                              <span class="text nav-text">FAQs</span>
+                          </a>
+                      </li>
+
+                      <li class="nav-link especial" accordion (click)="true">
+                          <a>
+                              <i class='bx bx-home-heart icon' ></i>
+                              <span class="text nav-text">Beneficios</span>
+                          </a>
+                      </li>
+
+                      <section class="accordion-content">
+                          <div class="content-container">
+                              <li class="nav-link_esp" (click)="isMobile? toggleClose(): ''" routerLinkActive="active">
+                                  <a routerLink="./contest">
+                                      <i class='bx bx-party icon'></i>
+                                      <span class="text nav-text">Concursos Activos</span>
+                                  </a>
+                              </li>
+
+                              <li class="nav-link_esp" (click)="isMobile? toggleClose(): ''" routerLinkActive="active">
+                                  <a routerLink="./beneficts">
+                                      <i class='bx bxs-gift icon' ></i>
+                                      <span class="text nav-text">Mis concursos</span>
+                                  </a>
+                              </li>
+                          </div>
+                      </section>
+
+
+                  </ul>
+
+              </div>
+
+              <div class="bottom-content">
+                 <ul>
+                  <li title="Cerrar sesión" class="nav-link" (click)="logout()">
+                      <a>
+                          <i class='bx bx-log-out icon' ></i>
+                          <span class="text nav-text">Cerrar sesión</span>
+                      </a>
+                  </li>
+                 </ul>
+
+              </div>
+          </div>
+      </div>
+
+  </nav>
+
+  <div class="home">
+      <div class="home_header">
+
+        <div class="homer_header_title" >
+         <i class='bx bx-menu' (click)="toggleClose()"></i>
+          <p class="home_dash">Dashboard</p>
+        </div>
+
+         <div class="home_header_perfil">
+          <div class="home_header_perfil_user">
+
+              <ul [ngClass]="isMoodDark? 'change' : 'mode'">
+                  <div class="toggle-switch" (click)="toggleTheme()">
+                      <span class="switch">
+                          <span class="moon"><i class='bx bx-moon'></i></span>
+                          <span class="sun"><i class='bx bx-sun'></i></span>
+                      </span>
+                  </div>
+              </ul>
+
+              <div>
+                  <p class="user_name">Hola, <span>{{usuario.name}}</span></p>
+                  <p class="user_rol">Bienvenido</p>
+              </div>
+
+              <span class="avatar">
+
+                @if (usuario.photo) {
+                  <img [src]="usuario.photo" alt="">
+                }
+                @else {
+                  <i class="fa-solid fa-circle-user"></i>
+                }
+
+              </span>
+          </div>
+         </div>
+
+      </div>
+
+      <div class="home_route">
+              <router-outlet></router-outlet>
+              <app-loader></app-loader>
+      </div>
+
+  </div>
+
+
+</div>
+
+<app-modal></app-modal>
+

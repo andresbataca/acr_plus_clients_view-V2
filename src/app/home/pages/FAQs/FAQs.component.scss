@@ -1,0 +1,89 @@
+@import '../../../../styles.scss';
+
+
+.acr-container {
+  // padding: 50px 0px;
+  max-width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+
+  .acr-title {
+    font-size: $medium-font-size-title;
+    color: var(--color-text);
+    font-weight: 600;
+    border-bottom: 1px solid var(--primary-color-neutro);
+    padding-bottom: 10px;
+    width: 220px;
+  }
+  .acr-subtitle{
+
+    font-size: $base-font-size;
+    color: var(--color-text);
+    font-weight: 400;
+    line-height: 20px;
+  }
+}
+
+.acr-container_faq {
+    display: flex;
+    flex-direction: column;
+
+  .acr-accordion {
+    width: 100%;
+    padding: 15px 20px 15px 0px;
+    cursor: pointer;
+    transition: background-color 0.2s linear;
+    position: relative;
+    font-size: $base-font-size;
+    color: var(--color-text);
+    font-weight: 400;
+    border-bottom: 1px solid var(--color-text);
+
+
+    &::after {
+      content: "\f13a";
+      position: absolute;
+      font-family: "fontawesome";
+      font-size: 15px;
+      right: 0px;
+      top: 19px;
+    }
+
+  }
+
+  .is-open::after {
+    content: "\f139";
+  }
+
+  .acr-accordion_content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-in-out;
+    p{
+    font-size: $small-font-size;
+    color: var(--color-text);
+    font-weight: 100;
+    padding: 10px 20px;
+    }
+  }
+}
+
+/* Estilos para pantallas de ancho máximo de 768px (dispositivos móviles) */
+@media screen and (max-width: 1115px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    .acr-container-grid{
+      grid-column: none;
+    }
+  }
+
+
+}
+
+@media (max-width: 1024px) {
+  .acr-container{
+    max-width: 100%;
+  }
+}

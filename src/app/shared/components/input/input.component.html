@@ -1,0 +1,93 @@
+<div class="content-input">
+
+  @if (arrayInput.labelExists) {
+    <label class="label" for="">
+      {{arrayInput.name}}
+    </label>
+  }
+
+  <div class="container-body">
+    <div class="form__field" [formGroup]="form" [ngClass]="{'input-error': form.get(arrayInput.controlName)?.invalid && form.get(arrayInput.controlName)?.dirty}">
+
+      @if (arrayInput.iconExists) {
+        <label class="label-izq">
+          <span><i [class]="arrayInput.icon"></i></span>
+        </label>
+      }
+
+      <input
+        [style.font-size]="arrayInput.font"
+        [placeholder]="arrayInput.placeholder" class="input"
+        [type]="arrayInput.type === 'password' ? (arrayInput.isEyeChange ? 'text' : 'password') : arrayInput.type"
+        (input)="arrayInput.type === 'tel' ? onlyNumbers($event) : ''"
+        (input)="arrayInput.decimal? formatoNumerico($event): ''" [formControlName]="arrayInput.controlName"
+        [readOnly]="arrayInput.readonly?arrayInput.readonly:null"
+        (mousemove)="onMouseMove()"
+        (mouseout)="onMouseOut()"
+      >
+
+      @if (arrayInput.type === 'password') {
+        <label (click)="eyeChange()" class="label-der">
+          <span [hidden] = "arrayInput.isEyeChange" ><i class="fa-regular fa-eye"></i></span>
+          <span [hidden] = "!arrayInput.isEyeChange" ><i class="fa-regular fa-eye-slash"></i></span>
+        </label>
+      }
+
+      @if (arrayInput.errorIcon) {
+        @if (form.get(arrayInput.controlName)?.invalid && form.get(arrayInput.controlName)?.dirty) {
+          <span class="error-icon">
+            <i class="fa-solid fa-circle-exclamation"></i>
+          </span>
+        }
+      }
+
+    </div>
+
+    @if (form.get(arrayInput.controlName)?.dirty && form.get(arrayInput.controlName)?.errors?.['required']) {
+      <div class="text-danger">
+        <i class="fa-solid fa-circle-exclamation"></i>
+        El campo es requerido.
+      </div>
+    }
+
+    @if (arrayInput.validationSpecial && !arrayInput.passwordTwo) {
+        @if (this.dataFormValids()) {
+          <div style="font-size: 13px;">
+            Recuerda que la contraseña debe:
+            @for (item of arrayInput.validations; track item.validErrors) {
+              <div [ngClass]=" form.get(arrayInput.controlName)?.errors?.['required'] || form.get(arrayInput.controlName)?.errors?.[item.validErrors] ? 'validator-danger' : 'validator-success' ">
+
+                <span [hidden]="!(form.get(arrayInput.controlName)?.errors?.['required'] || form.get(arrayInput.controlName)?.errors?.[item.validErrors])">
+                  <i class="fa-solid fa-circle-xmark"></i>
+                </span>
+                <span [hidden]="(form.get(arrayInput.controlName)?.errors?.['required'] || form.get(arrayInput.controlName)?.errors?.[item.validErrors])">
+                  <i class="fa-solid fa-circle-check"></i>
+                </span>
+                    {{item.descriptErrors}}
+
+              </div>
+            }
+          </div>
+        }
+    }
+
+    @if (arrayInput.passwordTwo) {
+      @if (form.get(arrayInput.controlName)?.dirty && form.errors?.['valuesDoNotMatch'] && !(form.get(arrayInput.controlName)?.errors?.['required'])) {
+        <div class="text-danger">
+          <i class="fa-solid fa-circle-exclamation"></i>
+          Los campos de contraseña no coinciden
+        </div>
+      }
+    }
+
+
+  </div>
+
+  @if (arrayInput.tooltip) {
+    @if (mostrarMensaje) {
+      <div class="mensaje-cursor">
+        {{arrayInput.name}}
+      </div>
+    }
+  }
+</div>

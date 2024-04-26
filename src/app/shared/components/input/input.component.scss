@@ -1,0 +1,179 @@
+@import '../../../../styles.scss';
+
+:host {
+  width: var(--width);
+}
+
+.icon-date {
+  position: absolute;
+  right: 11px;
+  top: 9px;
+  font-size: 11px;
+  color: var(--color-text);
+}
+
+.input-error {
+  border: var(--primary-color-neutro) 1px solid;
+}
+
+.content-input {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  position: relative;
+
+
+  .container-body{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .label {
+    display: flex;
+    font-size: $small-font-size;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .form__field {
+    position: relative;
+    display: flex;
+    box-shadow: 0 0 5px var(--box-label-input);
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    height: 35px;
+    background: var(--sidebar-color-fondo);
+    transition: all 0.3s ease;
+    transition: $tran-03;
+
+    //input
+    .input {
+      width: 100%;
+      padding: 10px;
+      background-color: var(--sidebar-color-fondo);
+      border-bottom-right-radius: 5px;
+      border-top-right-radius: 5px;
+      border-bottom-left-radius: 5px;
+      border-top-left-radius: 5px;
+      border: none;
+      font-size: $small-font-size;
+      outline: none;
+      color: var(--color-text);
+      font-family: 'Poppins', sans-serif;
+      transition: $tran-03;
+
+      &::-webkit-calendar-picker-indicator {}
+
+      &:focus {
+        color: var(--color-text);
+      }
+
+      &::placeholder {
+        color: var(--color-text);
+        opacity: .7;
+      }
+    }
+
+
+
+    .error-icon {
+      position: absolute;
+      font-size: 12px;
+      right: 3px;
+      top: 1px;
+      color: var(--primary-color-neutro);
+    }
+
+    //input
+    .label-izq {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      background-color: var(--fondo-label-input);
+      border-bottom-left-radius: 5px;
+      border-top-left-radius: 5px;
+
+    }
+
+    .label-der {
+      position: absolute;
+      top: 50%;
+      right: 12px;
+      transform: translateY(-50%);
+      cursor: pointer;
+    }
+
+
+    label {
+      svg {
+        font-size: $small-font-size;
+        color: var(--color-text);
+      }
+    }
+
+  }
+
+}
+
+.text-danger {
+  width: 100%;
+  color: var(--primary-color-neutro);
+  font-size: 12px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+
+/* ocultar controles de input date */
+input[type="date"]::-webkit-inner-spin-button,
+::-webkit-calendar-picker-indicator {
+  // display: none;
+  background: transparent;
+  z-index: 1;
+  cursor: pointer;
+}
+
+
+.mensaje-cursor {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 5px 5px;
+  border-radius: 5px;
+  font-size: 10px;
+  pointer-events: none;
+  z-index: 9999;
+  right: 0;
+  top: 35px;
+}
+
+
+.form__field input[type="date"]::before {
+  font-family: "Font Awesome 5 Free";
+  /* Establece la fuente de FontAwesome */
+  content: "\f073";
+  /* Usa la clase CSS de FontAwesome para el ícono deseado */
+  font-size: 10px;
+  position: absolute;
+  right: 13px;
+  top: 13px;
+  // content: "📅";
+  z-index: 0;
+}
+
+.validator-danger {
+  color: red;
+  font-size: 12px;
+}
+
+.validator-success {
+  color: green;
+  font-size: 12px;
+}

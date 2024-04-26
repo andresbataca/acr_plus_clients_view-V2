@@ -1,0 +1,66 @@
+<div class="acr-container">
+
+  <div class="header">
+      <p class="title">Nuestros Canales</p>
+      <p class="subtitle">Un equipo de trabajo altamente dispuesto y comprometido a atender todas tus necesidades...</p>
+  </div>
+
+  <div class="acr-container_card">
+      <div class="grid">
+
+       <app-card-info [card]="cardCont"/>
+       <app-card-info [card]="cardInst"/>
+       <app-card-info [card]="cardTel"/>
+
+      </div>
+  </div>
+  <div class="acr-container_formulario">
+      <form (ngSubmit)="getSubmit()" [formGroup]="contactForm" class="page slide-page flash">
+
+          <div class="acr-form">
+
+              <div class="acr-form_img">
+                  <!-- <i class="fa-solid fa-tarp"></i> -->
+                  <i class="fa-solid fa-ticket"></i>
+              </div>
+
+              <div class="acr-form_title">
+                  <h2>
+                      Contacto
+                  </h2>
+              </div>
+
+              <div class="acr-form_text">
+                  <p>Completa este formulario y estaremos encantados de ayudarte con cualquier consulta o inquietud
+                      que tengas
+                  </p>
+              </div>
+
+          </div>
+
+          <app-select [form]="contactForm" [arraySelect]="arraySelect1">
+          </app-select>
+
+          <app-input [form]="contactForm" [arrayInput]="arrayInput1">
+          </app-input>
+
+          <app-input [form]="contactForm" [arrayInput]="arrayInput3">
+          </app-input>
+
+          <app-input [form]="contactForm" [arrayInput]="arrayInput4">
+          </app-input>
+
+          <div class="acr-msg">
+              <textarea spellcheck="false" formControlName="msg" required cols="20" rows="3"
+                  placeholder="Mensaje"></textarea>
+          </div>
+
+          <div class="">
+
+          </div>
+
+      </form>
+  </div>
+
+
+</div>

@@ -1,0 +1,68 @@
+<div class="acr-container">
+    <section class="acr-simulator">
+        <div class="acr-simulator_left">
+
+            <div class="acr-simulator_left_content">
+                <div class="acr-form">
+
+                    <div class="acr-form_img">
+                      <i class="fa-solid fa-ticket"></i>
+                    </div>
+
+                    <div class="acr-form_title">
+                      <h2>Simulador</h2>
+                    </div>
+
+
+                    <div class="acr-form_text">
+                      <p>Ingrese los detalles solicitados y obtenga una estimación rápida.</p>
+                    </div>
+
+                    <form (ngSubmit)="getSimulation()" [formGroup]="simulatorForm" class="acr-form_body">
+
+                      <app-input  [form]="simulatorForm" [arrayInput]="arrayInput1"></app-input>
+                      <app-select [form]="simulatorForm" [arraySelect]="arrayEmpleadoSelect1"></app-select>
+
+                      <div class="content-slider">
+                        <input type="range" min="1" max="9" formControlName="slide" class="slider" step="1">
+                      </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="acr-simulator_right">
+
+            <p class="acr-title">Revisa tu solicitud</p>
+
+            <div class="acr-simulator_right_content" *Ske="skeleton(); repeat:6 width:'rand' height:'30px' type:'multiple'">
+                <div class="acr-table">
+                    <div class="acr-table_cell tc1">Número de cuotas:</div>
+                    <div class="acr-table_cell tc1">Interés:</div>
+                    <div class="acr-table_cell tc1">Cuota:</div>
+                    <div class="acr-table_cell tc1">Seguro:</div>
+                    <div class="acr-table_cell tc1">Monto:</div>
+                </div>
+
+                <div class="acr-table">
+                    <div class="acr-table_cell red">{{simulation().cuotas === 0 ? '...' : (simulation().cuotas | customNumber) }}</div>
+                    <div class="acr-table_cell red">{{simulation().interes === 0 ? '...' : (simulation().interes)}}</div>
+                    <div class="acr-table_cell red">{{simulation().cuota === 0 ? '...' : (simulation().cuota | customNumber)}}</div>
+                    <div class="acr-table_cell red">{{simulation().seguro === 0 ? '...' : (simulation().seguro | customNumber)}}</div>
+                    <div class="acr-table_cell red">{{simulation().monto === 0 ? '...' : (simulation().monto | customNumber)}}</div>
+                </div>
+            </div>
+
+            <div>
+                <p class="acr-title">Valor de tu cuota:</p>
+                <h2 *Ske="skeleton(); repeat:1 width:'rand' height:'30px' type:'multiple'" class="red" for="" id="montTotal">{{simulation().cuotaMes === 0 ? '...' : (simulation().cuotaMes | customNumber)}}</h2>
+            </div>
+
+        </div>
+    </section>
+</div>
+

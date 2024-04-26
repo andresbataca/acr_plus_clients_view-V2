@@ -1,0 +1,72 @@
+<div class="acr-container">
+
+  <div class="acr-requirements">
+
+    <div class="acr-description">
+      <h5 class="title-descrip">Descripción</h5>
+      <p>Obtener la certificación donde se manifiesta que el deudor se encuentra a paz y salvo con la entidad.</p>
+      <div class="acr-content_area">
+        <div class="acr-content_area-item">
+          <h5>Tipo de tramite</h5>
+          <p>En Línea</p>
+        </div>
+        <div class="acr-content_area-item">
+          <h5>¿Tiempo del proceso?</h5>
+          <p>Inmediato.</p>
+        </div>
+        <div class="acr-content_area-item">
+          <h5>¿Tiene costo?</h5>
+          <p>Sin Costo(antes de 180 dias)</p>
+        </div>
+        <div class="acr-content_area-item">
+          <h5>¿A donde ir?</h5>
+          <p style="font-weight: 600; cursor: pointer;" (click)="openLocationLink()">Ver puntos de atención</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="acr-card">
+      <h5 class="acr-card_title">Requisitos para el Certificado de Paz y Salvo</h5>
+      <ul class="acr-card_body">
+        <li>Estar a paz y salvo con la entidad.</li>
+        <li>No pasar de 180 días.</li>
+       </ul>
+    </div>
+
+  </div>
+
+
+    <form (ngSubmit)="getSubmit()" [formGroup]="clearedForm" class="page slide-page flash">
+
+      <div class="form_header">
+
+        <div class="form_img">
+          <i class="fa-solid fa-ticket"></i>
+        </div>
+
+        <div class="form_title">
+          <h2>Certificado</h2>
+        </div>
+
+        <div class="form_text">
+          <p>Completa el formulario para solicitar su Certificado de Paz y Salvo, asegúrese de cumplir con todas las
+            obligaciones pendientes.</p>
+        </div>
+
+      </div>
+
+      <app-select [form]="clearedForm" [arraySelect]="arraySelect1">
+      </app-select>
+
+      <app-input [form]="clearedForm" [arrayInput]="arrayInput1">
+      </app-input>
+
+      <app-input [form]="clearedForm" [arrayInput]="arrayInput3">
+      </app-input>
+
+      <div class="">
+        <app-button [buttonArray]="newButton()" [myForm]="clearedForm.valid"></app-button>
+      </div>
+
+    </form>
+</div>

@@ -1,0 +1,15 @@
+@if (cardArray()) {
+  <div class="container" routerLink="../{{cardArray().route}}">
+    <div class="container-card">
+        <i [style.color]="cardArray().coloricon" class='{{cardArray().icon}}'></i>
+        <div class="card_body">
+            <p>{{cardArray().title}}</p>
+            <p>{{cardArray().subtitle}}</p>
+        </div>
+    </div>
+    <div class="container-card_footer">
+        <i class='bx bx-notepad icon'></i>
+    </div>
+  </div>
+}
+

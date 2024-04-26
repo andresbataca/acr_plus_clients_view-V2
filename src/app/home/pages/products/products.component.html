@@ -1,0 +1,63 @@
+
+<div class="acr-container">
+
+  <div class="acr-products_header">
+      <!-- <div class="acr-products_header_pruduct" *Ske="skeleton(); heightLabel:'18px' widthLabel:'200px' widthInput:'200px' heightInput:'35px' type: 'label-input'">
+          <span><i class="fa-solid fa-wallet"></i></span>
+          <p>{{data().productName}}</p>
+          <p>Nombre del producto</p>
+      </div>
+
+      <div class="acr-products_header_body">
+          <div class="acr-products_header_body_item" *Ske="skeleton(); heightLabel:'18px' widthLabel:'100px' widthInput:'100px' heightInput:'35px' type: 'label-input'">
+              <p style="color: var(--primary-color-neutro);" >${{data().approved}}</p>
+              <p>Cupo Aprobado</p>
+          </div>
+          <div class="acr-products_header_body_item" *Ske="skeleton(); heightLabel:'18px' widthLabel:'100px' widthInput:'100px' heightInput:'35px' type: 'label-input'">
+              <p
+              style="color: rgb(181, 215, 124);" >${{data().totalQuota}}</p>
+              <p>Cupo Disponible</p>
+          </div>
+      </div> -->
+      <div class="acr-cards">
+
+        
+
+      </div>
+  </div>
+
+  <div class="acr-products_body">
+      <div class="acr-product_movements">
+          <p class="acr-home_title" *Ske="skeleton(); width:'150px' height:'30px' type:'single'">Movimientos</p>
+
+          @for (item of data(); track $index) {
+          <table *Ske="skeleton(); width:'100%' height:'100px' type:'single'">
+              <thead>
+                  <tr>
+                      <th>Fecha</th>
+                      <th>Monto</th>
+                      <th>Medio</th>
+                      <th>Concepto</th>
+                  </tr>
+              </thead>
+
+              @for (item of item.movements; track $index) {
+                <tbody>
+                  <tr>
+                      <td><span><i class="fa-regular fa-calendar-days"></i></span> <span>{{item.date | date: 'dd/MM/yyyy'}}</span></td>
+                      <td [ngStyle]="{'color':item.transactionType === 'purchase' ? 'var(--primary-color-neutro)' : 'rgb(181, 215, 124)' }">{{item.value | currency}}</td>
+                      <td>{{item.ally | titlecase}}</td>
+                      <!-- <td><i class="fa-regular fa-circle-dot"></i></td> -->
+                      <td>{{item.transactionType === 'purchase'? 'Compra':'Pago'}}</td>
+                  </tr>
+                </tbody>
+              }
+
+          </table>
+        }
+
+      </div>
+
+  </div>
+
+</div>

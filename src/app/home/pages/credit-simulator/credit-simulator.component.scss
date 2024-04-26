@@ -1,0 +1,361 @@
+@import '../../../../styles.scss';
+
+.acr-container {
+    // padding: 50px 65px;
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+}
+
+.acr-form_body{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.acr-simulator {
+    display: flex;
+
+    .acr-title {
+        font-size: $base-font-size;
+        color: var(--color-text);
+        font-weight: 600;
+    }
+
+    .acr-simulator_left {
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-basis: 50%;
+        align-items: flex-start;
+        border-right: 2px solid var(--border-color);
+
+        .acr-simulator_left_content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 80%;
+            padding: 40px 40px;
+
+            .acr-form {
+
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                color: var(--color-text);
+
+                .acr-form_img {
+                    display: flex;
+                    justify-content: center;
+
+                    img {
+                        width: 80px;
+                        // border-radius: 50%;
+                    }
+                    svg{
+                        font-size: 35px;
+                        color: var(--primary-color-neutro);
+                    }
+                }
+
+                .acr-form_title {
+                    display: flex;
+                    justify-content: center;
+
+                    h2 {
+                        font-size: $medium-large-font-size;
+                        text-align: center;
+                        line-height: 30px;
+                    }
+
+                }
+
+                p {
+                    font-size: $small-font-size;
+                    text-align: center;
+                }
+
+                .acr-form_img {
+                    display: flex;
+                    justify-content: center;
+                    gap: 10px;
+                }
+
+            }
+
+            .simulator__question {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+
+            }
+        }
+    }
+
+    .acr-simulator_right {
+        padding: 40px 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        flex-basis: 50%;
+
+        .acr-simulator_right_content {
+            display: flex;
+
+            .acr-table {
+                width: 200px;
+
+                &:first-of-type {
+                    justify-content: end;
+                }
+
+                &:nth-of-type(2) {
+                    border-left: 1px solid #ddd;
+                }
+            }
+        }
+    }
+
+}
+
+
+.errorMessage {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: $small-font-size;
+}
+
+
+
+
+
+.acr-table_cell {
+    border-bottom: 1px solid #ddd;
+    font-size: $small-font-size;
+    color: var(--color-text);
+    font-weight: 600;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:last-child {
+        box-shadow: var(--box-shadow-color);
+    }
+}
+
+.tc1 {
+    text-align: right;
+    padding-right: 20px;
+}
+
+
+
+.content-slider {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+
+    .slider {
+        appearance: none;
+        height: 5px;
+        background: rgb(244, 215, 215);
+        outline: none;
+        border-radius: 20px;
+        position: relative;
+        width: 250px;
+
+        &::before {
+            content: '1';
+            position: absolute;
+            display: block;
+            left: 0;
+            bottom: -20px;
+            font-size: $small-font-size;
+            color: var(--color-text);
+        }
+
+        &::after {
+            content: '9';
+            position: absolute;
+            display: block;
+            right: 0;
+            bottom: -20px;
+            font-size: $small-font-size;
+            color: var(--color-text);
+        }
+
+        &::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 15px;
+            height: 15px;
+            background-color: var(--primary-color-neutro);
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        &::-moz-range-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background-color: var(--primary-color-neutro);
+            border-radius: 50%;
+            cursor: pointer;
+        }
+    }
+}
+
+.content-output {
+
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .label {
+        display: flex;
+        font-size: $small-font-size;
+        font-weight: 500;
+        color: var(--color-text);
+    }
+
+    output {
+        width: 10px;
+        text-align: center;
+        font-size: $small-font-size;
+        font-weight: 500;
+        color: var(--color-text);
+        border-bottom: solid 2px var(--color-text);
+    }
+
+}
+
+.content-input {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    .label {
+        display: flex;
+        // justify-content: center;
+        font-size: $small-font-size;
+        font-weight: 500;
+        color: var(--color-text);
+    }
+
+    .acr-container-body {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .form__field {
+            display: flex;
+            box-shadow: 0 0 5px var(--box-label-input);
+            border-bottom-right-radius: 5px;
+            border-top-right-radius: 5px;
+            border-bottom-left-radius: 5px;
+            border-top-left-radius: 5px;
+            height: 35px;
+
+            .input {
+                width: 100%;
+                padding: 10px;
+                background-color: var(--sidebar-color-fondo);
+                border-bottom-right-radius: 5px;
+                border-top-right-radius: 5px;
+                border: none;
+                font-size: $small-font-size;
+                opacity: .6;
+                outline: none;
+                color: var(--color-text);
+
+                &::-webkit-calendar-picker-indicator {
+                    // filter: invert(1);
+                }
+
+                &:focus {
+                    color: var(--color-text);
+                }
+
+                &::placeholder {
+                    color: var(--color-text);
+                }
+            }
+
+
+            .label-izq {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 50px;
+                background-color: var(--fondo-label-input);
+                border-bottom-left-radius: 5px;
+                border-top-left-radius: 5px;
+            }
+
+            label {
+                span {
+                    font-size: 12px;
+                    color: var(--color-text);
+                }
+            }
+
+            .label-der {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 50px;
+                cursor: pointer;
+                border-bottom-right-radius: 5px;
+                border-top-right-radius: 5px;
+            }
+
+        }
+    }
+}
+
+
+.red {
+    color: var(--primary-color-neutro);
+    font-weight: bolder;
+    text-align: center;
+}
+
+
+@media (max-width: 1024px) {
+
+    .simulator {
+        flex-direction: column;
+        .acr-simulator_left {
+
+        border-right: none;
+
+            .acr-simulator_left_content {
+                width: 100%;
+                padding: 10px 10px;
+            }
+        }
+
+        .acr-simulator_right {
+
+
+            .acr-simulator_right_content {
+
+
+                .acr-table {
+                    width: 180px;
+                }
+            }
+        }
+    }
+ }

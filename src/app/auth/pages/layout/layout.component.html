@@ -1,0 +1,19 @@
+<section class="client_cont">
+  <div class="client_cont_left">
+      <app-carousel
+      [items]="carouselData"
+      [autoSlide]="true"
+      [indicators]="true"
+      [controls]="false"
+      [slideInterval]="8000"
+      >
+      </app-carousel>
+  </div>
+  <div class="client_cont_right">
+      <router-outlet></router-outlet>
+  </div>
+</section>
+
+<app-modal></app-modal>
+
+

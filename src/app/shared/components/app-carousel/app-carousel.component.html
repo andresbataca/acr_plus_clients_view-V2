@@ -1,0 +1,40 @@
+<div class="carousel_container">
+
+  @for (item of items; track $index) {
+  <div [ngClass]="{'image-active':selectedIndex() === $index}" class="carousel_container__items">
+
+    <div class="carousel_container slideShow" [ngStyle]="{'background-image': 'url(' + item.imgFondo + ')'}">
+      <img style="width: 100%;" [src]="" alt="">
+
+    </div>
+
+    <div class="carousel_logo">
+      <p>Mi Cuota</p>
+      <img src="https://creditoacr.com/wp-content/uploads/2022/12/Recurso-1.png" alt="">
+    </div>
+
+  </div>
+  }
+
+  @if (indicators) {
+  <div class="carousel_dot">
+    @for (item of items; track $index) {
+    <span cLass="inter_dot" [ngClass]="{'active': selectedIndex() === $index}" (click)="selectImage($index)">
+    </span>
+    }
+  </div>
+  }
+
+  @if (controls) {
+  <div class="carousel_btn btn-prev" (click)="onPrevClick()">
+    <i class="fa-solid fa-chevron-down one icon-carousel icon-prev"></i>
+  </div>
+  }
+
+  @if (controls) {
+  <div class="carousel_btn btn-next" (click)="onNextClick()">
+    <i class="fa-solid fa-chevron-down one icon-carousel icon-next"></i>
+  </div>
+  }
+
+</div>

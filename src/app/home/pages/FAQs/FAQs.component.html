@@ -1,0 +1,14 @@
+<div class="acr-container">
+  <p class="acr-title">Preguntas frecuentes</p>
+  <p class="acr-subtitle">Encuentra respuestas detalladas y soluciones a las preguntas más frecuentes para facilitar tu
+    experiencia con nosotros.</p>
+
+  <div class="acr-container_faq" *Ske="skeleton(); repeat:12 width:'rand' height:'40px' type:'multiple'">
+    @for (item of arrayQuestions(); track item.id) {
+    <div accordion class="acr-accordion">{{item.question}}</div>
+    <div class="acr-accordion_content">
+      <p [innerHtml]="item.answer"></p>
+    </div>
+    }
+  </div>
+</div>

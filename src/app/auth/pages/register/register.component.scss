@@ -1,0 +1,111 @@
+@import '../../../../styles.scss';
+
+.client_cont {
+
+  .acr_form_input_check {
+    display: flex;
+    gap: 10px;
+    font-size: 12px;
+    line-height: 14px;
+  }
+
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  align-items: center;
+  flex-direction: column;
+  background-image: url(https://creditoacr.com/wp-content/uploads/2022/09/Group-245.png);
+  background-repeat: no-repeat;
+  background-size: 170px,
+  250px;
+  background-position: bottom right 10px,
+  bottom right;
+
+
+  .form_cont {
+    @include efectocaida($time: 0.2s);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .acr_form_register {
+    span {
+      font-size: $base-font-links;
+      color: var(--color-text-neutro);
+
+      a {
+        text-decoration: none;
+        font-size: $base-font-size;
+        color: var(--primary-color-neutro);
+      }
+    }
+  }
+
+  .acr_form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 350px;
+    padding: 20px;
+    color: var(--color-text-neutro);
+  }
+
+  .acr_form_header {
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .acr_form_img {
+      display: flex;
+      justify-content: center;
+
+      img {
+        width: 80px;
+        // border-radius: 50%;
+      }
+    }
+
+    .acr_form_title {
+      display: flex;
+      justify-content: center;
+
+      h2 {
+        font-size: $medium-large-font-size;
+        text-align: center;
+        line-height: 30px;
+        color: var(--color-text-neutro);
+      }
+
+      p {
+        font-size: $base-font-size;
+      }
+    }
+
+    .acr_form_img {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+  }
+
+  .acr_form_recovery {
+    display: flex;
+    justify-content: center;
+
+    &:hover {
+      animation: bounce 1s ease;
+      -webkit-animation: bounce 1s ease;
+    }
+
+    a {
+      text-decoration: none;
+      font-size: $base-font-links;
+      color: var(--color-text-neutro);
+      cursor: pointer;
+    }
+  }
+
+}
